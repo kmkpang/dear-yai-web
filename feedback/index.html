@@ -62,8 +62,8 @@ textarea{min-height:88px;resize:vertical}
 textarea:focus,input[type=text]:focus{outline:3px solid var(--wood);outline-offset:1px}
 .send{display:flex;flex-direction:column;gap:12px;align-items:flex-start}
 button{font:inherit;font-weight:700;min-height:48px;padding:10px 22px;border-radius:10px;border:0;background:var(--leaf);color:var(--chip-on-fg);cursor:pointer}
+button:disabled{opacity:.6;cursor:default}
 button:focus-visible{outline:3px solid var(--wood);outline-offset:2px}
-#out{width:100%;min-height:160px;font-size:.9rem}
 .status{color:var(--leaf);font-weight:600;min-height:1.6em}
 footer{color:var(--soft);font-size:.85rem}
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
@@ -171,10 +171,9 @@ footer{color:var(--soft);font-size:.85rem}
 
       <fieldset class="q send">
         <legend>ส่งคำตอบ</legend>
-        <p>กดปุ่มแล้ววางส่งให้คนที่ส่งลิงก์นี้มา (เช่นทาง LINE)</p>
-        <button type="submit" id="copy">คัดลอกคำตอบ</button>
+        <p>ตอบข้อไหนก็ได้ ไม่ต้องครบทุกข้อ แล้วกดส่ง</p>
+        <button type="submit" id="send">ส่งคำตอบ</button>
         <p class="status" id="status" aria-live="polite"></p>
-        <textarea id="out" readonly hidden aria-label="คำตอบที่คัดลอก"></textarea>
       </fieldset>
     </div>
   </form>
@@ -183,27 +182,31 @@ footer{color:var(--soft);font-size:.85rem}
 </main>
 <script>
 (function(){
-  var f=document.getElementById('f');
+  // answers go to a Google Form owned by the project (its sheet collects them); the form itself is never shown
+  var FORM='https://docs.google.com/forms/d/e/1FAIpQLSdRpZ7l5DSf-kQpsUhHs5YFC3zDL2CAeO5lS3Q5GSnWSDp3gQ/formResponse';
+  var ENTRY={feel:'entry.1545452023',place:'entry.1096278545',place_why:'entry.426110996',fav:'entry.1269373894',
+    odd:'entry.1773057758',want:'entry.1187440255',pixel:'entry.1063642837',age:'entry.1922182816'};
+  var f=document.getElementById('f'),btn=document.getElementById('send'),st=document.getElementById('status');
   function picked(name){
     var box=document.querySelector('[data-name="'+name+'"]');
-    return Array.prototype.filter.call(box.querySelectorAll('input'),function(i){return i.checked}).map(function(i){return i.value}).join(', ')||'-';
+    return Array.prototype.filter.call(box.querySelectorAll('input'),function(i){return i.checked}).map(function(i){return i.value}).join(', ');
   }
-  function val(id){var v=document.getElementById(id).value.trim();return v||'-';}
+  function val(id){return document.getElementById(id).value.trim();}
   f.addEventListener('submit',function(e){
     e.preventDefault();
-    var t=['ร้านยายบุญ: ความเห็นเรื่องภาพ',
-      '1. รู้สึก: '+picked('feel'),
-      '2. ที่ไหน: '+picked('place')+' (ดูจาก: '+val('place_why')+')',
-      '3. ชอบ: '+val('fav'),
-      '4. ดูไม่ออก/แปลก: '+val('odd'),
-      '5. อยากลอง (1-5): '+picked('want'),
-      '6. เกมพิกเซล: '+picked('pixel')+' · อายุ: '+picked('age')].join('\n');
-    var out=document.getElementById('out'),st=document.getElementById('status');
-    out.value=t; out.hidden=false;
-    function fallback(){out.focus();out.select();st.textContent='คัดลอกไม่ได้ กดค้างที่ข้อความด้านล่างแล้วเลือกคัดลอก';}
-    if(navigator.clipboard&&navigator.clipboard.writeText){
-      navigator.clipboard.writeText(t).then(function(){st.textContent='คัดลอกแล้ว วางส่งได้เลย ขอบคุณมาก';},fallback);
-    } else fallback();
+    var a={feel:picked('feel'),place:picked('place'),place_why:val('place_why'),fav:val('fav'),odd:val('odd'),
+      want:picked('want'),pixel:picked('pixel'),age:picked('age')};
+    var body=new URLSearchParams(),any=false;
+    for(var k in a){ if(a[k]){any=true;} body.append(ENTRY[k],a[k]); }
+    if(!any){st.textContent='ยังไม่ได้ตอบข้อไหนเลย ตอบสักข้อก่อนนะ';return;}
+    btn.disabled=true; st.textContent='กำลังส่ง…';
+    // shortcut: no-cors hides Google's reply, so only a network failure shows here; upgrade to Apps Script if a sent/failed signal is needed
+    fetch(FORM,{method:'POST',mode:'no-cors',body:body}).then(function(){
+      st.textContent='ส่งแล้ว ขอบคุณมาก';
+      btn.textContent='ส่งแล้ว';
+    },function(){
+      btn.disabled=false; st.textContent='ส่งไม่ได้ ลองเช็กอินเทอร์เน็ตแล้วกดส่งอีกครั้ง';
+    });
   });
 })();
 </script>
