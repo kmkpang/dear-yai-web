@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ร้านยายบุญ: ช่วยดูภาพ</title>
+<meta name="description" content="ขอความเห็นเรื่องภาพของเกมร้านชำยายบุญ ใช้เวลาราว 3 นาที">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@400;600;700&display=swap">
+<style>
+/* layout: one reading column like a shop notebook; pictures full column width, questions as paper slips */
+:root{
+  --paper:#f3ead6; --card:#fbf6ea; --ink:#2b1d16; --soft:#6b5446; --line:#d9c9a8;
+  --wood:#8a5a3b; --leaf:#4d6b43; --chip:#efe3c8; --chip-on:#4d6b43; --chip-on-fg:#fbf6ea;
+  --font:"IBM Plex Sans Thai Looped","Noto Sans Thai",Tahoma,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#1f1915; --card:#2a221d; --ink:#f1e7d3; --soft:#c2ae97; --line:#4a3c32;
+  --wood:#d49a6a; --leaf:#9cbf86; --chip:#3a2f28; --chip-on:#9cbf86; --chip-on-fg:#1f1915; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#1f1915; --card:#2a221d; --ink:#f1e7d3; --soft:#c2ae97; --line:#4a3c32;
+  --wood:#d49a6a; --leaf:#9cbf86; --chip:#3a2f28; --chip-on:#9cbf86; --chip-on-fg:#1f1915; color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.65}
+main{max-width:720px;margin:0 auto;padding-block:28px 64px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  display:flex;flex-direction:column;gap:28px}
+h1{font-size:1.75rem;line-height:1.3;margin:0;text-wrap:balance;color:var(--wood)}
+h2{font-size:1.15rem;margin:0;text-wrap:balance}
+p{margin:0}
+.lead{display:flex;flex-direction:column;gap:10px}
+.lead .meta{color:var(--soft);font-size:.95rem}
+figure{margin:0;display:flex;flex-direction:column;gap:6px}
+figure img{width:100%;height:auto;display:block;image-rendering:pixelated;border-radius:6px;border:1px solid var(--line)}
+figcaption{color:var(--soft);font-size:.92rem}
+.scroll{overflow-x:auto;border-radius:6px}
+.scroll img{width:auto;max-width:none;height:280px}
+.q{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:12px}
+.q .hint{color:var(--soft);font-size:.92rem}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips label{position:relative}
+.chips input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.chips span{display:inline-block;min-height:44px;padding:9px 16px;border-radius:999px;background:var(--chip);border:1px solid var(--line);user-select:none}
+.chips input:checked+span{background:var(--chip-on);color:var(--chip-on-fg);border-color:var(--chip-on)}
+.chips input:focus-visible+span{outline:3px solid var(--wood);outline-offset:2px}
+.scale span{min-width:52px;text-align:center}
+textarea,input[type=text]{width:100%;font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+textarea{min-height:88px;resize:vertical}
+textarea:focus,input[type=text]:focus{outline:3px solid var(--wood);outline-offset:1px}
+.send{display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+button{font:inherit;font-weight:700;min-height:48px;padding:10px 22px;border-radius:10px;border:0;background:var(--leaf);color:var(--chip-on-fg);cursor:pointer}
+button:focus-visible{outline:3px solid var(--wood);outline-offset:2px}
+#out{width:100%;min-height:160px;font-size:.9rem}
+.status{color:var(--leaf);font-weight:600;min-height:1.6em}
+footer{color:var(--soft);font-size:.85rem}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<main>
+  <section class="lead">
+    <h1>ช่วยดูภาพเกม "ร้านยายบุญ" หน่อย</h1>
+    <p>เกมเล่นบนมือถือ เปิดร้านชำของยายในหมู่บ้านภาคใต้ รับของ เติมชั้น ขายให้คนในหมู่บ้าน ตอนนี้อยากรู้ว่าภาพแบบนี้ใช้ได้ไหม ก่อนทำต่อ</p>
+    <p class="meta">ใช้เวลาราว 3 นาที ไม่ต้องใส่ชื่อ ไม่ต้องเล่นเกม ดูภาพแล้วตอบตามที่รู้สึกได้เลย ไม่มีคำตอบผิด</p>
+  </section>
+
+  <figure>
+    <img src="day.png" width="1280" height="720" alt="หน้าร้านตอนกลางวัน มองจากหลังโต๊ะคิดเงินออกไปเห็นถนน คลอง และเขาหินปูน มีลูกค้าสามคนยืนหน้าโต๊ะ">
+    <figcaption>หน้าร้านตอนกลางวัน (ผู้เล่นยืนหลังโต๊ะคิดเงิน ลูกค้ามายืนหน้าโต๊ะ)</figcaption>
+  </figure>
+  <figure>
+    <img src="night.png" width="1280" height="720" alt="หน้าร้านตอนค่ำ ไฟหลอดในร้านเปิด คนกรีดยางใส่ไฟฉายคาดหัว">
+    <figcaption>ตอนค่ำ ไฟในร้านเปิด คนกรีดยางใส่ไฟฉายคาดหัวแวะมา</figcaption>
+  </figure>
+  <figure>
+    <div class="scroll"><img src="shelves.png" width="1920" height="720" alt="ชั้นวางของในร้าน ตู้แช่ ชั้นขนม ข้าวสาร ผักผลไม้"></div>
+    <figcaption>ชั้นของด้านขวา (ปาดดูทั้งผนังได้)</figcaption>
+  </figure>
+  <figure>
+    <img src="wall.png" width="1280" height="720" alt="ผนังด้านซ้าย ประตูหลังร้าน ปฏิทิน นาฬิกา โทรศัพท์บ้าน และสมุดของยาย">
+    <figcaption>ผนังด้านซ้าย มีโทรศัพท์ไว้สั่งของ และสมุดเบอร์โทรของยาย</figcaption>
+  </figure>
+  <figure>
+    <img src="cast.png" width="1200" height="380" alt="ลูกค้าประจำ: ยายแดงกับหลาน ตาเอียด น้ารถเข็นผลไม้ น้องนักเรียนปั่นจักรยาน">
+    <figcaption>ลูกค้าประจำบางส่วน: ยายแดงกับหลาน · ตาเอียดคนหาปลา · น้ารถเข็นผลไม้ · น้องต้นปั่นจักรยานมาโรงเรียน</figcaption>
+  </figure>
+
+  <form id="f" novalidate>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div class="q">
+        <h2>1. ดูแล้วรู้สึกยังไง</h2>
+        <p class="hint">เลือกได้หลายคำ</p>
+        <div class="chips" data-name="feel">
+          <label><input type="checkbox" value="อบอุ่น"><span>อบอุ่น</span></label>
+          <label><input type="checkbox" value="น่ารัก"><span>น่ารัก</span></label>
+          <label><input type="checkbox" value="สบายตา"><span>สบายตา</span></label>
+          <label><input type="checkbox" value="คิดถึงบ้าน"><span>คิดถึงบ้าน</span></label>
+          <label><input type="checkbox" value="เก่า/เชย"><span>เก่า/เชย</span></label>
+          <label><input type="checkbox" value="รก"><span>รก</span></label>
+          <label><input type="checkbox" value="มืดไป"><span>มืดไป</span></label>
+          <label><input type="checkbox" value="ดูไม่ออก"><span>ดูไม่ออก</span></label>
+          <label><input type="checkbox" value="เฉย ๆ"><span>เฉย ๆ</span></label>
+        </div>
+      </div>
+
+      <div class="q">
+        <h2>2. ดูแล้วคิดว่าเป็นที่ไหน</h2>
+        <div class="chips" data-name="place" data-single>
+          <label><input type="radio" name="place" value="ภาคใต้"><span>ภาคใต้</span></label>
+          <label><input type="radio" name="place" value="ภาคเหนือ"><span>ภาคเหนือ</span></label>
+          <label><input type="radio" name="place" value="ภาคอีสาน"><span>ภาคอีสาน</span></label>
+          <label><input type="radio" name="place" value="ภาคกลาง"><span>ภาคกลาง</span></label>
+          <label><input type="radio" name="place" value="ต่างประเทศ"><span>ต่างประเทศ</span></label>
+          <label><input type="radio" name="place" value="ไม่แน่ใจ"><span>ไม่แน่ใจ</span></label>
+        </div>
+        <input type="text" id="place_why" placeholder="ดูจากอะไร (ไม่ตอบก็ได้)">
+      </div>
+
+      <div class="q">
+        <h2>3. ชอบคนไหนหรือของชิ้นไหนที่สุด</h2>
+        <textarea id="fav" placeholder="เช่น ตาเอียด ไฟฉายคาดหัว ตู้แช่ ฯลฯ"></textarea>
+      </div>
+
+      <div class="q">
+        <h2>4. มีตรงไหนดูไม่ออก แปลก หรือขัดตา</h2>
+        <textarea id="odd" placeholder="บอกได้เลย ตรง ๆ ช่วยได้มาก"></textarea>
+      </div>
+
+      <div class="q">
+        <h2>5. ถ้าเกมนี้มีให้เล่นฟรี อยากลองไหม</h2>
+        <div class="chips scale" data-name="want" data-single>
+          <label><input type="radio" name="want" value="1 ไม่เลย"><span>1</span></label>
+          <label><input type="radio" name="want" value="2"><span>2</span></label>
+          <label><input type="radio" name="want" value="3"><span>3</span></label>
+          <label><input type="radio" name="want" value="4"><span>4</span></label>
+          <label><input type="radio" name="want" value="5 อยากมาก"><span>5</span></label>
+        </div>
+        <p class="hint">1 = ไม่เลย · 5 = อยากลองมาก</p>
+      </div>
+
+      <div class="q">
+        <h2>6. เกี่ยวกับคุณ</h2>
+        <p class="hint">เคยเล่นเกมภาพพิกเซลแบบนี้ไหม</p>
+        <div class="chips" data-name="pixel" data-single>
+          <label><input type="radio" name="pixel" value="เล่นบ่อย"><span>เล่นบ่อย</span></label>
+          <label><input type="radio" name="pixel" value="เคยบ้าง"><span>เคยบ้าง</span></label>
+          <label><input type="radio" name="pixel" value="ไม่เคย"><span>ไม่เคย</span></label>
+          <label><input type="radio" name="pixel" value="ไม่ค่อยเล่นเกม"><span>ไม่ค่อยเล่นเกมเลย</span></label>
+        </div>
+        <p class="hint">ช่วงอายุ</p>
+        <div class="chips" data-name="age" data-single>
+          <label><input type="radio" name="age" value="ต่ำกว่า 20"><span>ต่ำกว่า 20</span></label>
+          <label><input type="radio" name="age" value="20-35"><span>20–35</span></label>
+          <label><input type="radio" name="age" value="36-50"><span>36–50</span></label>
+          <label><input type="radio" name="age" value="มากกว่า 50"><span>มากกว่า 50</span></label>
+        </div>
+      </div>
+
+      <div class="q send">
+        <h2>ส่งคำตอบ</h2>
+        <p>กดปุ่มแล้ววางส่งให้คนที่ส่งลิงก์นี้มา (เช่นทาง LINE)</p>
+        <button type="submit" id="copy">คัดลอกคำตอบ</button>
+        <p class="status" id="status" aria-live="polite"></p>
+        <textarea id="out" readonly hidden aria-label="คำตอบที่คัดลอก"></textarea>
+      </div>
+    </div>
+  </form>
+
+  <footer>ร้านยายบุญ (Dear Yai) · ภาพทั้งหมดเป็นภาพจากเกมที่กำลังทำ ยังเปลี่ยนได้</footer>
+</main>
+<script>
+(function(){
+  var f=document.getElementById('f');
+  function picked(name){
+    var box=document.querySelector('[data-name="'+name+'"]');
+    return Array.prototype.filter.call(box.querySelectorAll('input'),function(i){return i.checked}).map(function(i){return i.value}).join(', ')||'-';
+  }
+  function val(id){var v=document.getElementById(id).value.trim();return v||'-';}
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var t=['ร้านยายบุญ: ความเห็นเรื่องภาพ',
+      '1. รู้สึก: '+picked('feel'),
+      '2. ที่ไหน: '+picked('place')+' (ดูจาก: '+val('place_why')+')',
+      '3. ชอบ: '+val('fav'),
+      '4. ดูไม่ออก/แปลก: '+val('odd'),
+      '5. อยากลอง (1-5): '+picked('want'),
+      '6. เกมพิกเซล: '+picked('pixel')+' · อายุ: '+picked('age')].join('\n');
+    var out=document.getElementById('out'),st=document.getElementById('status');
+    out.value=t; out.hidden=false;
+    function fallback(){out.focus();out.select();st.textContent='คัดลอกไม่ได้ กดค้างที่ข้อความด้านล่างแล้วเลือกคัดลอก';}
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(t).then(function(){st.textContent='คัดลอกแล้ว วางส่งได้เลย ขอบคุณมาก';},fallback);
+    } else fallback();
+  });
+})();
+</script>
+</body>
+</html>
